@@ -38,11 +38,17 @@ class HttpClient {
 	public function delegateRequest($method, $uri, $payload_arg) {
 		if ($method == "get") {
 			return $this->get($uri, $payload_arg);
+		} else if ($method == "post") {
+			return $this->post($uri, $payload_arg);
 		}
 	}
 
 	public function get($url, $payload) {
 		Requests::get($url, null, $payload);
+	}
+
+	public function post($url, $payload) {
+		Requests::post($url, null, $payload);
 	}
 }
 
